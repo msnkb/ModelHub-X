@@ -1,0 +1,26 @@
+name: Issue Responder
+on:
+  issues:
+    types: [opened]
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Add a comment based on the label
+      uses: actions/github-script@v4
+      with:
+        script: |
+          const { context, github } = require('@actions/github');
+          const issueNumber = context.issue.number;
+          const issueLabels = context.payload.issue.labels.map(label => label.name);
+          let commentBody = 'Hello, world!';
+          if (issueLabels.includes('bug')) {
+            commentBody = 'Thank you. We will fix it.';
+          } else if (issueLabels.includes('feature')) {
+            commentBody = 'Thank you, we will consider to include this feature.';
+          }
+          await github.issues.createComment({
+            ...context.repo,
+            issue_number: issueNumber,
+            body: commentBody,
+          });
