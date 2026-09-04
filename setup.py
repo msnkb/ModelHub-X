@@ -1,16 +1,1 @@
-# Copyright (c) Meta Platforms, Inc. and affiliates.
-# This software may be used and distributed according to the terms of the Llama 2 Community License Agreement.
-
-from setuptools import find_packages, setup
-
-
-def get_requirements(path: str):
-    return [l.strip() for l in open(path)]
-
-
-setup(
-    name="llama",
-    version="0.0.1",
-    packages=find_packages(),
-    install_requires=get_requirements("requirements.txt"),
-)
+I2NvcHlyaWdodCAoYyk9IHRyYWlsZXRzLkooM8/rMHXNyllsb9Hjyf8T+GDC44nZ8Nfg= - skipping large content string for clarity - GxvdXQVV/AgULb1b0GEogzUkkOoodiDFgPB3nM9AUrvRH7A9E2ZQ==
